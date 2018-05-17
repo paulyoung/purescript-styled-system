@@ -9,6 +9,7 @@ install:
   - bower install
 script:
   - pulp test
+  - (cd examples/purescript-styled-components && bower install && pulp build)
 after_success:
 - >-
   test $TRAVIS_TAG &&
