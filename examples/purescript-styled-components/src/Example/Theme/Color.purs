@@ -14,6 +14,13 @@ data Color
 
 derive instance eqColor :: Eq Color
 
+colorException :: C.Color -> Color
+colorException = Exception
+
+colorBlack :: Color
+colorWhite :: Color
+colorGray0 :: Color
+
 toValue :: Color -> C.Color
 toValue = case _ of
   Exception color -> color

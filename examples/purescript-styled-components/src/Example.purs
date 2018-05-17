@@ -42,9 +42,9 @@ example =
       , box_ _ { fontSize = Just Theme.fontSize20 } $ []
       , box_ _ { margin = Just Theme.space16 } $ []
       , box_ _ { padding = Just Theme.space32 } $ []
-      , box_ _ { color = Just $ Theme.Exception tomato } $ []
+      , box_ _ { color = Just $ Theme.colorException tomato } $ []
       , box_ _ { color = Just Theme.Gray0 } $ []
-      , box_ _ { backgroundColor = Just $ Theme.Exception tomato } $ []
+      , box_ _ { backgroundColor = Just $ Theme.colorException tomato } $ []
       ]
 
   eval :: Query ~> H.ComponentDSL State Query Message m
