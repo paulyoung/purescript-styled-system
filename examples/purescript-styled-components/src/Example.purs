@@ -5,7 +5,7 @@ import Prelude
 import Color.Scheme.X11 (tomato)
 import Data.Maybe (Maybe(..))
 import Example.Box (box_)
-import Example.Theme.Color (Color(..)) as Theme
+import Example.Theme.Color (colorException, colorGray0) as Theme
 import Example.Theme.FontSize (fontSize20) as Theme
 import Example.Theme.Space (space16, space32) as Theme
 import Halogen as H
@@ -43,7 +43,7 @@ example =
       , box_ _ { margin = Just Theme.space16 } $ []
       , box_ _ { padding = Just Theme.space32 } $ []
       , box_ _ { color = Just $ Theme.colorException tomato } $ []
-      , box_ _ { color = Just Theme.Gray0 } $ []
+      , box_ _ { color = Just Theme.colorGray0 } $ []
       , box_ _ { backgroundColor = Just $ Theme.colorException tomato } $ []
       ]
 
