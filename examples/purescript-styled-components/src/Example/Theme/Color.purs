@@ -17,9 +17,9 @@ derive instance eqColor :: Eq Color
 colorException :: C.Color -> Color
 colorException = Exception
 
-colorBlack :: Color
-colorWhite :: Color
-colorGray0 :: Color
+colorBlack = Black :: Color
+colorWhite = White :: Color
+colorGray0 = Gray0 :: Color
 
 toValue :: Color -> C.Color
 toValue = case _ of
