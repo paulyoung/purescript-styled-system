@@ -2,7 +2,6 @@ module Example.Box where
 
 import Prelude
 
-import Data.Record.Builder as Record
 import Example.Theme.Color (Color) as Theme
 import Example.Theme.Color as Color
 import Example.Theme.FontSize (FontSize) as Theme
@@ -10,6 +9,7 @@ import Example.Theme.FontSize as FontSize
 import Example.Theme.Space (Space) as Theme
 import Example.Theme.Space as Space
 import Halogen.HTML as HH
+import Record.Builder as Record
 import Styled.Components as Styled
 import Styled.System (ColorState, FontSizeState, SpaceState, WidthState)
 import Styled.System as System

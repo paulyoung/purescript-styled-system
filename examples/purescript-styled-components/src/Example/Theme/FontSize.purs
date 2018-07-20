@@ -2,8 +2,7 @@ module Example.Theme.FontSize where
 
 import Prelude
 
-import Style.Property (FontSizeValue)
-import Style.Property.Value (px)
+import Style.Declaration.Value (FontSizeValue, px)
 
 data FontSize
   = Twelve

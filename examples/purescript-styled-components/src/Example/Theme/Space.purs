@@ -2,7 +2,7 @@ module Example.Theme.Space where
 
 import Prelude
 
-import Style.Property.Value (px)
+import Style.Declaration.Value (px)
 import Styled.System (SpaceValue)
 
 data Space

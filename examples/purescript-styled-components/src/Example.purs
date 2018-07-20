@@ -10,7 +10,7 @@ import Example.Theme.FontSize (fontSize20) as Theme
 import Example.Theme.Space (space16, space32) as Theme
 import Halogen as H
 import Halogen.HTML as HH
-import Style.Property.Value (pct)
+import Style.Declaration.Value (pct)
 
 type State = Unit
 
