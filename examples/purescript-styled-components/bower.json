@@ -2,7 +2,7 @@
   "name": "purescript-styled-components-example",
   "private": true,
   "dependencies": {
-    "purescript-styled-components": "9cde16ad4f20768d9ca39cd11ec222107fb69e87",
-    "purescript-styled-system": "3880bd7bb90ad7704689b46fa1518b812ae3946c"
+    "purescript-styled-components": "63c65f2f6108954378fe8352b0642f37cc44a210",
+    "purescript-styled-system": "*"
   }
 }

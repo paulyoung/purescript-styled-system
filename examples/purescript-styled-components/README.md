@@ -6,6 +6,6 @@ This example is equivalent to the one found in the [README](https://github.com/j
 
 ```sh
 $ bower install
-$ pulp build --to index.js
+$ pulp browserify --to index.js
 $ open index.html
 ```
