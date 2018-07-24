@@ -42,7 +42,7 @@ defaultState = Record.build builder {}
 
 box
   :: forall p i
-   . Styled.ID -- make id field part of State?
+   . Styled.ID -- TODO: make id field part of State
   -> (State -> State)
   -> StyledM (Styled.Element _ p i)
 box id mkArgs = el id state
@@ -53,11 +53,11 @@ box id mkArgs = el id state
   state = mkArgs defaultState -- TODO: compiler-solved Lacks/Nub instead
 
   el = Styled.element HH.div $
-    [ css \s ->
-       System.color Color.toValue s -- s or state? is a function unnecessary?
-         <> System.fontSize FontSize.toValue s
-         <> System.space Space.toValue s
-         <> System.width s
+    [ css $
+       System.color Color.toValue
+         <> System.fontSize FontSize.toValue
+         <> System.space Space.toValue
+         <> System.width
     ]
 
 box_
