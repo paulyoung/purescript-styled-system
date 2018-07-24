@@ -6,7 +6,7 @@ import Color as C
 import Data.Maybe (Maybe(..))
 import Data.Variant (Variant, expand)
 import Record.Builder as Record
-import Style.Declaration (Declaration, TRBL)
+import Style.Declaration (Declaration)
 import Style.Declaration as Style
 import Style.Declaration.Value as V
 import Type.Row (type (+))
@@ -155,13 +155,13 @@ marginY = marginTop <> marginBottom
 
 margin
   :: forall a s
-   . (a -> TRBL V.MarginValue)
+   . (a -> V.MarginValue)
   -> { | SpaceState a s }
   -> Array Declaration
 margin fromTheme state = case state.margin of
   Just x ->
-    let { top, right, bottom, left } = fromTheme x
-    in [ Style.margin top right bottom left ]
+    let y = fromTheme x
+    in [ Style.margin y y y y ]
   Nothing -> []
 
 
@@ -217,32 +217,22 @@ paddingY = paddingTop <> paddingBottom
 
 padding
   :: forall a s
-   . (a -> TRBL V.PaddingValue)
+   . (a -> V.PaddingValue)
   -> { | SpaceState a s }
   -> Array Declaration
 padding fromTheme state = case state.padding of
   Just x ->
-    let { top, right, bottom, left } = fromTheme x
-    in [ Style.padding top right bottom left ]
+    let y = fromTheme x
+    in [ Style.padding y y y y ]
   Nothing -> []
 
 
 space
   :: forall a s
-   . (a -> TRBL SpaceValue)
+   . (a -> SpaceValue)
   -> { | SpaceState a s }
   -> Array Declaration
-space fromTheme = margin (fromSpaceValue <<< fromTheme) <> padding fromTheme
-
-  where
-
-  fromSpaceValue :: TRBL SpaceValue -> TRBL V.MarginValue
-  fromSpaceValue { top, right, bottom, left } =
-    { top: expand top
-    , right: expand right
-    , bottom: expand bottom
-    , left: expand left
-    }
+space fromTheme = margin (expand <<< fromTheme) <> padding fromTheme
 
 
 type TextColorState a s = ( color :: Maybe a | s )
