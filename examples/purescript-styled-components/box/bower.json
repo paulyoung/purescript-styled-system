@@ -3,6 +3,6 @@
   "private": true,
   "dependencies": {
     "purescript-styled-components": "63c65f2f6108954378fe8352b0642f37cc44a210",
-    "purescript-styled-system": "*"
+    "purescript-styled-system": "1c2e442d489c27463b11698ad38bfba7ac5e4232"
   }
 }
