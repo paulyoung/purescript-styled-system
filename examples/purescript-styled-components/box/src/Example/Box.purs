@@ -18,7 +18,7 @@ import Styled.System (ColorState, FontSizeState, SpaceState, WidthState)
 import Styled.System as System
 import Type.Row (type (+))
 
-type CSSFields r =
+type SystemFields r =
   ( ColorState Theme.Color
   + FontSizeState Theme.FontSize
   + SpaceState Theme.Space
@@ -28,7 +28,7 @@ type CSSFields r =
 
 type State =
   { id :: Styled.ID
-  | CSSFields ()
+  | SystemFields ()
   }
 
 defaultState :: State
@@ -47,13 +47,14 @@ box
   :: forall p i
    . (State -> State)
   -> StyledM (Styled.Element _ p i)
-box mkArgs = el state.id state
+box mkState = el state.id state
 
   where
 
   state :: State
-  state = mkArgs defaultState -- TODO: compiler-solved Lacks/Nub instead
+  state = mkState defaultState -- TODO: compiler-solved Lacks/Nub instead
 
+  el :: _
   el = Styled.element HH.div $
     [ css $
         System.color Color.toValue

@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "dependencies": {
+    "big-integer": "^1.6.31"
+  }
+}
