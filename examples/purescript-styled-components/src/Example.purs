@@ -40,6 +40,7 @@ example =
     , finalizer: Just $ H.action Finalize
     , receiver: const Nothing
     }
+
   where
 
   initialState :: State
@@ -52,8 +53,20 @@ example =
   render state = do
     box1 <- box_ state.id _ { width = Just $ 50.0 # pct }
     box2 <- box_ state.id _ { fontSize = Just Theme.fontSize20 }
-    box3 <- box_ state.id _ { margin = Just Theme.space16 }
-    box4 <- box_ state.id _ { padding = Just Theme.space32 }
+    box3 <- box_ state.id _ { margin = Just
+                                { top: Theme.space16
+                                , right: Theme.space16
+                                , bottom: Theme.space16
+                                , left: Theme.space16
+                                }
+                            }
+    box4 <- box_ state.id _ { padding = Just
+                                { top: Theme.space32
+                                , right: Theme.space32
+                                , bottom: Theme.space32
+                                , left: Theme.space32
+                                }
+                            }
     box5 <- box_ state.id _ { color = Just $ Theme.colorException tomato }
     box6 <- box_ state.id _ { color = Just Theme.colorGray0 }
     box7 <- box_ state.id _ { backgroundColor = Just $ Theme.colorException tomato }

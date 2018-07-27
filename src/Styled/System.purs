@@ -6,7 +6,7 @@ import Color as C
 import Data.Maybe (Maybe(..))
 import Data.Variant (Variant, expand)
 import Record.Builder as Record
-import Style.Declaration (Declaration)
+import Style.Declaration (Declaration, TRBL)
 import Style.Declaration as Style
 import Style.Declaration.Value as V
 import Type.Row (type (+))
@@ -74,12 +74,12 @@ type SpaceValue =
     )
 
 type SpaceState a s =
-  ( margin :: Maybe a
+  ( margin :: Maybe (TRBL a)
   , marginTop :: Maybe a
   , marginRight :: Maybe a
   , marginBottom :: Maybe a
   , marginLeft :: Maybe a
-  , padding :: Maybe a
+  , padding :: Maybe (TRBL a)
   , paddingTop :: Maybe a
   , paddingRight :: Maybe a
   , paddingBottom :: Maybe a
@@ -159,9 +159,14 @@ margin
   -> { | SpaceState a s }
   -> Array Declaration
 margin fromTheme state = case state.margin of
-  Just x ->
-    let y = fromTheme x
-    in [ Style.margin y y y y ]
+  Just { top, right, bottom, left } ->
+    let
+      t = fromTheme top
+      r = fromTheme right
+      b = fromTheme bottom
+      l = fromTheme left
+    in
+     [ Style.margin t r b l ]
   Nothing -> []
 
 
@@ -221,9 +226,14 @@ padding
   -> { | SpaceState a s }
   -> Array Declaration
 padding fromTheme state = case state.padding of
-  Just x ->
-    let y = fromTheme x
-    in [ Style.padding y y y y ]
+  Just { top, right, bottom, left } ->
+    let
+      t = fromTheme top
+      r = fromTheme right
+      b = fromTheme bottom
+      l = fromTheme left
+    in
+     [ Style.padding t r b l ]
   Nothing -> []
 
 
