@@ -12,15 +12,19 @@
     "output"
   ],
   "dependencies": {
-    "purescript-arrays": "^4.4.0",
-    "purescript-colors": "^4.3.0",
-    "purescript-maybe": "^3.1.0",
-    "purescript-prelude": "^3.3.0",
-    "purescript-style": "^0.1.0",
-    "purescript-typelevel-prelude": "^2.7.0",
-    "purescript-variant": "^4.1.0"
+    "purescript-arrays": "^5.0.0",
+    "purescript-colors": "^5.0.0",
+    "purescript-maybe": "^4.0.0",
+    "purescript-prelude": "^4.0.1",
+    "purescript-record": "^1.0.0",
+    "purescript-style": "^0.17.0",
+    "purescript-typelevel-prelude": "^3.0.0",
+    "purescript-variant": "^5.0.0"
   },
   "devDependencies": {
-    "purescript-psci-support": "^3.0.0"
+    "purescript-console": "^4.1.0",
+    "purescript-effect": "^2.0.0",
+    "purescript-psci-support": "^4.0.0",
+    "purescript-styled-components": "63c65f2f6108954378fe8352b0642f37cc44a210"
   }
 }

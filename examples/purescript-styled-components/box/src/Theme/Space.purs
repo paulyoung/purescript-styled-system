@@ -1,8 +1,8 @@
-module Example.Theme.Space where
+module Examples.StyledComponents.Box.Theme.Space where
 
 import Prelude
 
-import Style.Property.Value (px)
+import Style.Declaration.Value (px)
 import Styled.System (SpaceValue)
 
 data Space
