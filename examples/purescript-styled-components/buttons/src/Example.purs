@@ -1,12 +1,12 @@
-module Example where
+module Examples.StyledComponents.Buttons.Example where
 
 import Prelude
 
 import Data.Int (decimal)
 import Data.Int as Int
 import Data.Maybe (Maybe(..))
-import Example.Button (button)
-import Example.Button as Button
+import Examples.StyledComponents.Buttons.Button (button)
+import Examples.StyledComponents.Buttons.Button as Button
 import Halogen as H
 import Halogen.HTML as HH
 import Halogen.HTML.Events as HE

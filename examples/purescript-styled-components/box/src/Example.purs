@@ -1,13 +1,13 @@
-module Example where
+module Examples.StyledComponents.Box.Example where
 
 import Prelude
 
 import Color.Scheme.X11 (tomato)
 import Data.Maybe (Maybe(..))
-import Example.Box (box_)
-import Example.Theme.Color (colorException, colorGray0) as Theme
-import Example.Theme.FontSize (fontSize20) as Theme
-import Example.Theme.Space (space16, space32) as Theme
+import Examples.StyledComponents.Box.Box (box_)
+import Examples.StyledComponents.Box.Theme.Color (colorException, colorGray0) as Theme
+import Examples.StyledComponents.Box.Theme.FontSize (fontSize20) as Theme
+import Examples.StyledComponents.Box.Theme.Space (space16, space32) as Theme
 import Halogen as H
 import Halogen.HTML as HH
 import Style.Declaration.Value (pct)

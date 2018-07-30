@@ -1,4 +1,4 @@
-module Example.Theme.Space where
+module Examples.StyledComponents.Buttons.Theme.Space where
 
 import Prelude
 

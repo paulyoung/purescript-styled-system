@@ -1,16 +1,16 @@
-module Example.Button where
+module Examples.StyledComponents.Buttons.Button where
 
 import Prelude hiding (zero)
 
 import Color (rgb, rgba, white)
 import Data.Maybe (Maybe(..))
-import Data.Newtype (class Newtype, unwrap)
-import Example.Theme.Color (Color) as Theme
-import Example.Theme.Color as Color
-import Example.Theme.FontSize (FontSize) as Theme
-import Example.Theme.FontSize as FontSize
-import Example.Theme.Space (Space) as Theme
-import Example.Theme.Space as Space
+import Data.Newtype (class Newtype, over, under, unwrap)
+import Examples.StyledComponents.Buttons.Theme.Color (Color) as Theme
+import Examples.StyledComponents.Buttons.Theme.Color as Color
+import Examples.StyledComponents.Buttons.Theme.FontSize (FontSize) as Theme
+import Examples.StyledComponents.Buttons.Theme.FontSize as FontSize
+import Examples.StyledComponents.Buttons.Theme.Space (Space) as Theme
+import Examples.StyledComponents.Buttons.Theme.Space as Space
 import Halogen as H
 import Halogen.HTML as HH
 import Halogen.HTML.Events as HE
@@ -33,24 +33,31 @@ type SystemFields r =
   + r
   )
 
-type StateFields =
+type StateRep' r =
   { css :: Array (Constructors State) -- keep? limit to system values?
   , html :: H.ComponentHTML Query
   , id :: Styled.ID
   , isOn :: Boolean
-  | SystemFields ()
+  | r
   }
 
-newtype State = State StateFields
+type StateRep = StateRep' (SystemFields ())
+
+newtype State = State StateRep
 
 derive instance newtypeState :: Newtype State _
 
 defaultState :: State
-defaultState = Record.build builder { id: Styled.ID "" }
+defaultState = State $ Record.build builder
+  { css: []
+  , html: HH.text ""
+  , id: Styled.ID ""
+  , isOn: false
+  }
 
   where
 
-  builder :: Record.Builder { id :: Styled.ID } State
+  builder :: Record.Builder (StateRep' ()) StateRep
   builder =
     Record.merge System.defaultColorState
       <<< Record.merge System.defaultFontSizeState
@@ -74,17 +81,20 @@ buttonEl
   :: forall p i
    . (State -> State) -- TODO: compiler-solved Lacks/Nub
   -> StyledM (Styled.Element _ p i)
-buttonEl mkState = el state.id state
+buttonEl mkState = el stateRep.id stateRep
 
   where
 
   state :: State
   state = mkState defaultState -- TODO: compiler-solved Lacks/Nub
 
-  -- el
-  --   :: Styled.ID
-  --   -> State
-  --   -> StyledM (Styled.Element _ p i)
+  stateRep :: StateRep
+  stateRep = unwrap state
+
+  el
+    :: Styled.ID
+    -> StateRep
+    -> StyledM (Styled.Element _ p i)
   el = Styled.element HH.button $
     [ css $
         System.backgroundColor Color.toValue
@@ -145,18 +155,12 @@ button =
   where
 
   initialState :: Input -> State
-  initialState input =
-    State
-      { css: input.css
-      , html: HH.text ""
-      , id: Styled.ID ""
-      , isOn: false
-      }
+  initialState input = over State _ { css = input.css } defaultState
 
   render :: State -> StyledM (H.ComponentHTML Query)
-  render state@(State s) = do
-    let label = if s.isOn then "On" else "Off"
-    button' <- buttonEl state
+  render s@(State state) = do
+    let label = if state.isOn then "On" else "Off"
+    button' <- buttonEl $ const s
     pure $
       button'
         [ HP.title label

@@ -1,4 +1,4 @@
-module Example.Theme.Color where
+module Examples.StyledComponents.Buttons.Theme.Color where
 
 import Prelude
 

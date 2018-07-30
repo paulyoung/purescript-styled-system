@@ -1,13 +1,13 @@
-module Example.Box where
+module Examples.StyledComponents.Box.Box where
 
 import Prelude
 
-import Example.Theme.Color (Color) as Theme
-import Example.Theme.Color as Color
-import Example.Theme.FontSize (FontSize) as Theme
-import Example.Theme.FontSize as FontSize
-import Example.Theme.Space (Space) as Theme
-import Example.Theme.Space as Space
+import Examples.StyledComponents.Box.Theme.Color (Color) as Theme
+import Examples.StyledComponents.Box.Theme.Color as Color
+import Examples.StyledComponents.Box.Theme.FontSize (FontSize) as Theme
+import Examples.StyledComponents.Box.Theme.FontSize as FontSize
+import Examples.StyledComponents.Box.Theme.Space (Space) as Theme
+import Examples.StyledComponents.Box.Theme.Space as Space
 import Halogen.HTML as HH
 import Record.Builder as Record
 import Styled.Components (element) as Styled

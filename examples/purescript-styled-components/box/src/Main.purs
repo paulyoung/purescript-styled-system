@@ -1,4 +1,4 @@
-module Main where
+module Examples.StyledComponents.Box.Main where
 
 import Prelude
 
@@ -6,7 +6,7 @@ import Data.Map as Map
 import Effect (Effect)
 import Effect.Class (liftEffect)
 import Effect.Ref (new)
-import Example (example)
+import Examples.StyledComponents.Box.Example (example)
 import Halogen as H
 import Halogen.Aff as HA
 import Halogen.VDom.Driver (runUI)

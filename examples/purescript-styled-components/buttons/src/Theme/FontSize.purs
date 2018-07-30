@@ -1,4 +1,4 @@
-module Example.Theme.FontSize where
+module Examples.StyledComponents.Buttons.Theme.FontSize where
 
 import Prelude
 

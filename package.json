@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "scripts": {
+    "example-styled-components-box": "pulp browserify --main Examples.StyledComponents.Box.Main --include examples/purescript-styled-components/box/src --to examples/purescript-styled-components/box/index.js",
+    "example-styled-components-buttons": "pulp browserify --main Examples.StyledComponents.Buttons.Main --include examples/purescript-styled-components/buttons/src --to examples/purescript-styled-components/buttons/index.js"
+  },
+  "devDependencies": {
+    "big-integer": "^1.6.32"
+  }
+}

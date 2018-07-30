@@ -24,6 +24,7 @@
   "devDependencies": {
     "purescript-console": "^4.1.0",
     "purescript-effect": "^2.0.0",
-    "purescript-psci-support": "^4.0.0"
+    "purescript-psci-support": "^4.0.0",
+    "purescript-styled-components": "63c65f2f6108954378fe8352b0642f37cc44a210"
   }
 }

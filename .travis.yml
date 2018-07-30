@@ -3,13 +3,12 @@ dist: trusty
 sudo: required
 node_js: stable
 install:
-  - npm install -g yarn
-  - yarn global add purescript@^0.12 pulp bower purescript-psa
-  - export PATH="$PATH:`yarn global bin`"
+  - npm install -g purescript@^0.12 pulp bower purescript-psa
   - bower install
 script:
   - pulp test
-  - (cd examples/purescript-styled-components && bower install && pulp build)
+  - npm run example-styled-components-box
+  - npm run example-styled-components-buttons
 after_success:
 - >-
   test $TRAVIS_TAG &&
